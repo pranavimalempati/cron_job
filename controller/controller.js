@@ -13,11 +13,8 @@ const add = async(req,res)=>{
 }
 
 // scheduling a cronjob to update comments every day at 12am which is equal to current date
-const update = (req,res)=>{
+const update = async (req,res)=>{
     try {
-    // const task = cron.schedule('*/30 * * * * *', cronjob)
-    const task = cron.schedule('0 0 0 * * *', cronjob)
-    async function cronjob(){
     let ts = Date.now();
     let date_ob = new Date(ts);
     let date = date_ob.getDate();
@@ -39,19 +36,14 @@ const update = (req,res)=>{
         }
         console.log('---------------------'),
         console.log('running a task every 30 seconds')
-    }
-    res.send("successfully updated")
     } catch (error) {
         console.log(error.message)
     }
 }
 
 // scheduling a cronjob to delete record every day at 12am which is equal to current date
-const remove = (req,res)=>{
+const remove = async (req,res)=>{
     try {
-    // const task = cron.schedule('*/30 * * * * *', cronjob)
-    const task = cron.schedule('0 0 0 * * *', cronjob)
-    async function cronjob(){
     let ts = Date.now();
     let date_ob = new Date(ts);
     let date = date_ob.getDate();
@@ -72,8 +64,6 @@ const remove = (req,res)=>{
         }
         console.log('---------------------'),
         console.log('running a task every 30 seconds')
-    }
-    res.send("successfully deleted")
     } catch (error) {
         console.log(error.message)
     }
