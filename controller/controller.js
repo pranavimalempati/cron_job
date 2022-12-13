@@ -1,7 +1,5 @@
 const { db } = require("../db");
 const users = db.collection("Users");
-const cron = require('node-cron');
-
 // inserting the data into database
 const add = async(req,res)=>{
     try {
