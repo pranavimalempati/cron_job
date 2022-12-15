@@ -12,8 +12,8 @@ app.use(bodyParser.json())
 app.use("/", router);
 app.use(cors())
 async function run() {
-    //   const task = cron.schedule('0 0 0 * * *', controller.remove)
-    const task = cron.schedule('*/30 * * * * *', controller.remove)
+      const task = cron.schedule('0 0 0 * * *', controller.remove)
+    // const task = cron.schedule('*/30 * * * * *', controller.remove)
     await mongoose.connect("mongodb://localhost:27017");
     app.listen(process.env.PORT, () => {        
         console.log(`Now listening on port ${process.env.PORT}`); 
